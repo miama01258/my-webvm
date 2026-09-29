@@ -2,55 +2,55 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>我的 Web 工作站</title>
+  <title>我的 WebVM + VS Code 工作站</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #1e1e1e;
-      color: #ffffff;
+    body { display: flex; height: 100vh; background-color: #1e1e1e; font-family: sans-serif; color: #fff; }
+    
+    /* 左側：VS Code 開啟區域 */
+    .left-panel {
+      flex: 1;
+      height: 100%;
+      border-right: 2px solid #333;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
-      height: 100vh;
+      align-items: center;
+      padding: 20px;
       text-align: center;
+      background-color: #252526;
     }
-    .card {
-      background: #252526;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-      max-width: 480px;
-      width: 90%;
-    }
-    h1 { margin-bottom: 10px; font-size: 24px; color: #61afef; }
-    p { margin-bottom: 30px; font-size: 14px; color: #abb2bf; }
-    .btn-group { display: flex; flex-direction: column; gap: 15px; }
-    .btn {
-      display: block;
-      padding: 14px 20px;
-      border-radius: 8px;
+    
+    .btn-vscode {
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #007acc;
+      color: #fff;
       text-decoration: none;
       font-weight: bold;
-      font-size: 16px;
-      transition: all 0.2s ease;
+      border-radius: 6px;
+      transition: background 0.2s;
     }
-    .btn-vscode { background-color: #007acc; color: #ffffff; }
     .btn-vscode:hover { background-color: #005999; }
-    .btn-webvm { background-color: #28a745; color: #ffffff; }
-    .btn-webvm:hover { background-color: #218838; }
+
+    /* 右側：WebVM 終端機區域 */
+    .right-panel { flex: 1; height: 100%; }
+    iframe { width: 100%; height: 100%; border: none; }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>我的 Cloud 工作站</h1>
-    <p>請選擇您要開啟的工具：</p>
-    <div class="btn-group">
-      <a href="https://vscode.dev" target="_blank" class="btn btn-vscode">🚀 開啟 VS Code Web</a>
-      <a href="https://webvm.io" target="_blank" class="btn btn-webvm">🖥️ 開啟 WebVM Linux 終端機</a>
-    </div>
+  <!-- 左側：點擊開啟 VS Code -->
+  <div class="left-panel">
+    <h2>VS Code Web 編輯器</h2>
+    <p style="color: #ccc; margin-top: 10px; max-width: 300px;">
+      因瀏覽器安全規範，VS Code 需於新分頁開啟以獲取完整存取權限。
+    </p>
+    <a href="https://vscode.dev" target="_blank" class="btn btn-vscode">🚀 開啟 VS Code (新分頁)</a>
+  </div>
+
+  <!-- 右側：WebVM 終端機 -->
+  <div class="right-panel">
+    <iframe src="https://webvm.io" title="WebVM Terminal"></iframe>
   </div>
 </body>
 </html>
