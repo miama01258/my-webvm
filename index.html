@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>我的 WebVM + VS Code 工作站</title>
+  <!-- 載入 Service Worker 協助 WebVM 順利運行 -->
+  <script src="https://cdn.jsdelivr.net/npm/coi-serviceworker/coi-serviceworker.min.js"></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { display: flex; height: 100vh; background-color: #1e1e1e; font-family: sans-serif; color: #fff; }
     
-    /* 左側：VS Code 開啟區域 */
+    /* 左側：VS Code 引導區域 */
     .left-panel {
       flex: 1;
       height: 100%;
@@ -16,39 +18,40 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 20px;
+      padding: 30px;
       text-align: center;
       background-color: #252526;
     }
     
     .btn-vscode {
       margin-top: 20px;
-      padding: 12px 24px;
+      padding: 14px 28px;
       background-color: #007acc;
       color: #fff;
       text-decoration: none;
       font-weight: bold;
+      font-size: 16px;
       border-radius: 6px;
       transition: background 0.2s;
     }
     .btn-vscode:hover { background-color: #005999; }
 
-    /* 右側：WebVM 終端機區域 */
-    .right-panel { flex: 1; height: 100%; }
+    /* 右側：WebVM 終端機內嵌區域 */
+    .right-panel { flex: 1.5; height: 100%; }
     iframe { width: 100%; height: 100%; border: none; }
   </style>
 </head>
 <body>
-  <!-- 左側：點擊開啟 VS Code -->
+  <!-- 左側：VS Code 獨立開啟區 -->
   <div class="left-panel">
-    <h2>VS Code Web 編輯器</h2>
-    <p style="color: #ccc; margin-top: 10px; max-width: 300px;">
-      因瀏覽器安全規範，VS Code 需於新分頁開啟以獲取完整存取權限。
+    <h2>💻 VS Code Web 編輯器</h2>
+    <p style="color: #aaa; margin-top: 12px; font-size: 14px; line-height: 1.6;">
+      微軟設有資安限制禁止嵌入。<br>點擊下方按鈕即可在新分頁開啟完整編輯器：
     </p>
-    <a href="https://vscode.dev" target="_blank" class="btn btn-vscode">🚀 開啟 VS Code (新分頁)</a>
+    <a href="https://vscode.dev" target="_blank" class="btn-vscode">🚀 開啟 VS Code</a>
   </div>
 
-  <!-- 右側：WebVM 終端機 -->
+  <!-- 右側：嵌入 WebVM 終端機 -->
   <div class="right-panel">
     <iframe src="https://webvm.io" title="WebVM Terminal"></iframe>
   </div>
