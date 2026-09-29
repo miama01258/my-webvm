@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>我的 WebVM + VS Code 工作站</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { display: flex; height: 100vh; background-color: #1e1e1e; font-family: sans-serif; }
+    .panel { flex: 1; height: 100%; border: 1px solid #333; }
+    iframe { width: 100%; height: 100%; border: none; }
+  </style>
+</head>
+<body>
+  <!-- 左側：VS Code Web 編輯器 -->
+  <div class="panel">
+    <iframe src="https://vscode.dev" title="VS Code"></iframe>
+  </div>
+
+  <!-- 右側：WebVM 終端機 -->
+  <div class="panel">
+    <iframe src="https://webvm.io" title="WebVM Terminal"></iframe>
+  </div>
+</body>
+</html>
